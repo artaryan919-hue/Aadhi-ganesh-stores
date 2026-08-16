@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadi Ganesh Store | Mulund West</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --maroon:#5b1020;
+  --deep:#25070d;
+  --gold:#d9a441;
+  --gold2:#f5d58a;
+  --cream:#fff8e9;
+  --green:#174c3b;
+  --white:#fffdf8;
+  --shadow:0 20px 60px rgba(50,10,15,.18);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--cream);
+  color:#2b1618;
+  overflow-x:hidden;
+}
+
+button,input{font:inherit}
+
+button{cursor:pointer}
+
+.topbar{
+  background:var(--deep);
+  color:#f8dfaa;
+  text-align:center;
+  padding:8px;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:16px 6%;
+  background:rgba(255,248,233,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(217,164,65,.25);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--maroon);
+}
+
+.logo-symbol{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#f6d27d,#a86c13);
+  color:#fff;
+  font-size:26px;
+  box-shadow:0 8px 25px rgba(170,110,20,.3);
+}
+
+.logo h1{
+  font-family:Cinzel,serif;
+  font-size:21px;
+  letter-spacing:1px;
+}
+
+.logo small{
+  display:block;
+  color:#92714a;
+  font-size:10px;
+  letter-spacing:3px;
+}
+
+.navlinks{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+.navlinks button{
+  background:none;
+  border:0;
+  color:#4b2227;
+  font-weight:600;
+}
+
+.navlinks button:hover{color:var(--gold)}
+
+.nav-actions{
+  display:flex;
+  gap:9px;
+}
+
+.icon-btn{
+  border:1px solid #ead5ad;
+  background:#fffaf0;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  transition:.3s;
+}
+
+.icon-btn:hover{
+  background:var(--maroon);
+  color:white;
+  transform:translateY(-3px);
+}
+
+.hero{
+  min-height:720px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  padding:70px 7%;
+  background:
+    radial-gradient(circle at 80% 30%,rgba(217,164,65,.25),transparent 25%),
+    radial-gradient(circle at 20% 80%,rgba(91,16,32,.1),transparent 30%),
+    var(--cream);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.12;
+  background-image:
+    radial-gradient(#9e762b 1px,transparent 1px);
+  background-size:28px 28px;
+}
+
+.hero-content{position:relative;z-index:2}
+
+.badge{
+  display:inline-block;
+  padding:9px 16px;
+  border-radius:50px;
+  background:#fff1cd;
+  color:var(--maroon);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:1.5px;
+  margin-bottom:20px;
+}
+
+.hero h2{
+  font-family:Cinzel,serif;
+  color:var(--maroon);
+  font-size:clamp(45px,6vw,82px);
+  line-height:1.03;
+  max-width:750px;
+}
+
+.hero h2 span{
+  color:#b47a1b;
+}
+
+.hero p{
+  max-width:600px;
+  color:#70565a;
+  margin:24px 0;
+  line-height:1.8;
+  font-size:17px;
+}
+
+.cta{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  padding:14px 23px;
+  border-radius:50px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,#7c162d,#3b0811);
+  box-shadow:0 12px 30px rgba(91,16,32,.25);
+}
+
+.btn-secondary{
+  color:var(--maroon);
+  background:#fff;
+  border:1px solid #e7d2a9;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(60,20,20,.2);
+}
+
+.hero-art{
+  position:relative;
+  height:550px;
+  display:grid;
+  place-items:center;
+  perspective:1000px;
+}
+
+.orbit{
+  width:390px;
+  height:390px;
+  border:1px solid rgba(180,122,27,.35);
+  border-radius:50%;
+  position:absolute;
+  animation:spin 18s linear infinite;
+}
+
+.orbit:before,
+.orbit:after{
+  content:"✦";
+  position:absolute;
+  color:var(--gold);
+  font-size:25px;
+}
+
+.orbit:before{top:-15px;left:50%}
+.orbit:after{bottom:15px;right:15px}
+
+.store-card{
+  width:300px;
+  height:380px;
+  border-radius:160px 160px 35px 35px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.8),rgba(239,207,143,.7));
+  border:2px solid rgba(217,164,65,.5);
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transform-style:preserve-3d;
+  animation:float 4s ease-in-out infinite;
+}
+
+.store-card .om{
+  font-size:70px;
+  color:var(--maroon);
+  margin-bottom:20px;
+}
+
+.store-card h3{
+  font-family:Cinzel,serif;
+  font-size:27px;
+  color:var(--maroon);
+  text-align:center;
+}
+
+.store-card p{
+  margin-top:10px;
+  color:#755f45;
+}
+
+.floating{
+  position:absolute;
+  width:60px;
+  height:60px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.8);
+  box-shadow:0 15px 35px rgba(80,30,20,.15);
+  font-size:28px;
+  animation:float 3s ease-in-out infinite;
+}
+
+.f1{top:12%;left:7%}
+.f2{right:4%;top:22%;animation-delay:1s}
+.f3{bottom:15%;left:13%;animation-delay:1.5s}
+
+.section{
+  padding:90px 7%;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:35px;
+}
+
+.eyebrow{
+  color:#ad7415;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.section h2{
+  font-family:Cinzel,serif;
+  color:var(--maroon);
+  font-size:40px;
+  margin-top:7px;
+}
+
+.search{
+  display:flex;
+  background:#fff;
+  border:1px solid #ead9ba;
+  border-radius:50px;
+  padding:6px;
+  max-width:350px;
+  width:100%;
+}
+
+.search input{
+  border:0;
+  outline:0;
+  background:transparent;
+  padding:10px 15px;
+  flex:1;
+}
+
+.search button{
+  border:0;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  color:#fff;
+  background:var(--maroon);
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.category{
+  padding:30px 20px;
+  border-radius:25px;
+  background:#fff;
+  border:1px solid #eadbc0;
+  text-align:center;
+  transition:.4s;
+}
+
+.category:hover{
+  transform:translateY(-10px) rotateX(3deg);
+  box-shadow:var(--shadow);
+}
+
+.category-icon{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff1cf;
+  font-size:32px;
+}
+
+.category h3{
+  margin-top:15px;
+  color:var(--maroon);
+}
+
+.category p{
+  color:#866d70;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.product{
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  border:1px solid #eadbc0;
+  transition:.35s;
+}
+
+.product:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow);
+}
+
+.product-img{
+  height:220px;
+  display:grid;
+  place-items:center;
+  font-size:80px;
+  background:
+    radial-gradient(circle at 30% 20%,#fff 0 10%,transparent 11%),
+    linear-gradient(135deg,#f6e8c5,#fff8e9);
+}
+
+.product-info{padding:18px}
+
+.product-tag{
+  color:#ad7415;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.product h3{
+  color:var(--maroon);
+  margin:7px 0;
+}
+
+.price{
+  font-weight:800;
+  font-size:18px;
+}
+
+.product-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:15px;
+}
+
+.add{
+  border:0;
+  background:var(--maroon);
+  color:#fff;
+  padding:9px 15px;
+  border-radius:30px;
+  font-weight:700;
+}
+
+.saree-section{
+  background:
+    linear-gradient(rgba(49,5,14,.91),rgba(49,5,14,.91)),
+    radial-gradient(circle,#b88123 1px,transparent 1px);
+  background-size:auto,30px 30px;
+  color:white;
+}
+
+.saree-section h2{color:#f7d78e}
+.saree-section .eyebrow{color:#f0bd53}
+
+.saree-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.saree{
+  min-height:330px;
+  border-radius:30px;
+  padding:30px;
+  display:flex;
+  align-items:end;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,220,145,.35);
+  background:linear-gradient(145deg,#891d37,#2e0710);
+  transition:.4s;
+}
+
+.saree:nth-child(2){background:linear-gradient(145deg,#c08a24,#541018)}
+.saree:nth-child(3){background:linear-gradient(145deg,#165747,#142c27)}
+.saree:hover{
+  transform:scale(1.025);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.saree:before{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:330px;
+  right:-45px;
+  top:-50px;
+  border-radius:50%;
+  background:rgba(255,215,125,.12);
+  transform:rotate(25deg);
+}
+
+.saree-content{position:relative;z-index:2}
+.saree h3{
+  font-family:Cinzel,serif;
+  font-size:25px;
+}
+.saree p{
+  color:#f3ddb0;
+  margin:7px 0 15px;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-card{
+  background:#fff;
+  padding:45px;
+  border-radius:35px;
+  box-shadow:var(--shadow);
+  border:1px solid #eadbc0;
+}
+
+.about-card p{
+  color:#715b5e;
+  line-height:1.9;
+  margin-top:18px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.stat{
+  padding:20px;
+  background:#fff7e7;
+  border-radius:20px;
+}
+
+.stat strong{
+  display:block;
+  font-size:28px;
+  color:var(--maroon);
+}
+
+.location{
+  background:#f2e4c5;
+}
+
+.location-box{
+  border-radius:35px;
+  background:#fff;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  box-shadow:var(--shadow);
+}
+
+.map{
+  min-height:300px;
+  border-radius:25px;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(135deg,rgba(91,16,32,.88),rgba(217,164,65,.55)),
+    repeating-linear-gradient(45deg,transparent 0 20px,rgba(255,255,255,.08) 21px 22px);
+  color:white;
+  text-align:center;
+}
+
+.footer{
+  background:#23070d;
+  color:#d8b889;
+  padding:55px 7% 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer h3{
+  color:#f1d28d;
+  font-family:Cinzel,serif;
+  margin-bottom:15px;
+}
+
+.footer p,.footer li{
+  color:#b99875;
+  line-height:1.8;
+  list-style:none;
+}
+
+.copyright{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:35px;
+  padding-top:20px;
+  text-align:center;
+  font-size:13px;
+}
+
+.cart-panel{
+  position:fixed;
+  right:-430px;
+  top:0;
+  width:min(410px,100%);
+  height:100vh;
+  z-index:2000;
+  background:#fffaf0;
+  box-shadow:-20px 0 60px rgba(0,0,0,.25);
+  transition:.4s;
+  padding:30px;
+  overflow:auto;
+}
+
+.cart-panel.open{right:0}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.close{
+  border:0;
+  background:#f1dfba;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:15px 0;
+  border-bottom:1px solid #eadbc0;
+}
+
+.cart-item-icon{
+  width:55px;
+  height:55px;
+  border-radius:15px;
+  background:#f4e4c0;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+}
+
+.cart-total{
+  margin-top:25px;
+  padding:20px;
+  background:#fff;
+  border-radius:20px;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(20,3,7,.5);
+  z-index:1500;
+  display:none;
+}
+
+.overlay.show{display:block}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#26070d;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:50px;
+  z-index:3000;
+  transition:.4s;
+}
+
+.toast.show{transform:translate(-50%,0)}
+
+.page-counter{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:var(--maroon);
+  color:#fff;
+  padding:8px 13px;
+  border-radius:30px;
+  font-size:11px;
+  opacity:.8;
+  z-index:900;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotateY(0)}
+  50%{transform:translateY(-15px) rotateY(6deg)}
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+@media(max-width:950px){
+  .navlinks{display:none}
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .hero p{margin-left:auto;margin-right:auto}
+  .cta{justify-content:center}
+  .categories,.products{grid-template-columns:repeat(2,1fr)}
+  .saree-grid{grid-template-columns:1fr}
+  .about,.location-box{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  nav{padding:12px 4%}
+  .logo h1{font-size:16px}
+  .logo-symbol{width:40px;height:40px}
+  .hero{padding:55px 5%;min-height:auto}
+  .hero-art{height:430px}
+  .orbit{width:300px;height:300px}
+  .store-card{width:240px;height:320px}
+  .section{padding:60px 5%}
+  .section-head{display:block}
+  .search{margin-top:20px}
+  .categories,.products{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .location-box{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  ✦ PREMIUM GROCERIES • SOUTH INDIAN SAREES • MULUND WEST ✦
+</div>
+
+<nav>
+  <div class="logo">
+    <div class="logo-symbol">ॐ</div>
+    <div>
+      <h1>AADI GANESH STORE</h1>
+      <small>MULUND WEST</small>
+    </div>
+  </div>
+
+  <ul class="navlinks">
+    <li><button onclick="go('home')">Home</button></li>
+    <li><button onclick="go('grocery')">Grocery</button></li>
+    <li><button onclick="go('sarees')">Sarees</button></li>
+    <li><button onclick="go('about')">About</button></li>
+    <li><button onclick="go('contact')">Visit Us</button></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="icon-btn" onclick="focusSearch()">⌕</button>
+    <button class="icon-btn" onclick="openCart()">🛒</button>
+  </div>
+</nav>
+
+<main id="home">
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">EST. • MULUND WEST • MUMBAI</span>
+
+    <h2>
+      Tradition,<br>
+      <span>taste</span> & elegance.
+    </h2>
+
+    <p>
+      Welcome to Aadi Ganesh Store — your beautiful neighbourhood
+      destination for everyday groceries, authentic South Indian
+      favourites, elegant sarees and traditional clothing.
+    </p>
+
+    <div class="cta">
+      <button class="btn btn-primary" onclick="go('grocery')">
+        Explore Store →
+      </button>
+
+      <button class="btn btn-secondary" onclick="go('sarees')">
+        View Sarees
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <div class="orbit"></div>
+
+    <div class="store-card">
+      <div class="om">ॐ</div>
+      <h3>Aadi Ganesh<br>Store</h3>
+      <p>Groceries • Sarees • Tradition</p>
+    </div>
+
+    <div class="floating f1">🌺</div>
+    <div class="floating f2">🪔</div>
+    <div class="floating f3">🥥</div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Explore</div>
+      <h2>Our Collections</h2>
+    </div>
+  </div>
+
+  <div class="categories">
+    <div class="category" onclick="filterProducts('grocery')">
+      <div class="category-icon">🌾</div>
+      <h3>Groceries</h3>
+      <p>Daily essentials & staples</p>
+    </div>
+
+    <div class="category" onclick="filterProducts('south')">
+      <div class="category-icon">🥥</div>
+      <h3>South Indian</h3>
+      <p>Authentic favourites</p>
+    </div>
+
+    <div class="category" onclick="go('sarees')">
+      <div class="category-icon">🥻</div>
+      <h3>Sarees</h3>
+      <p>Elegant traditional wear</p>
+    </div>
+
+    <div class="category" onclick="go('clothes')">
+      <div class="category-icon">✨</div>
+      <h3>Clothing</h3>
+      <p>Traditional fashion</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="grocery">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Fresh • Authentic • Everyday</div>
+      <h2>Grocery Favourites</h2>
+    </div>
+
+    <div class="search" id="searchBox">
+      <input id="searchInput"
+             placeholder="Search groceries, sarees..."
+             oninput="searchProducts()">
+      <button>⌕</button>
+    </div>
+  </div>
+
+  <div class="products" id="products"></div>
+</section>
+
+
+<section class="section saree-section" id="sarees">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Grace in every thread</div>
+      <h2>South Indian Sarees</h2>
+    </div>
+  </div>
+
+  <div class="saree-grid">
+    <div class="saree">
+      <div class="saree-content">
+        <h3>Kanjivaram Classics</h3>
+        <p>Rich traditional silk-inspired collection</p>
+        <button class="btn btn-secondary" onclick="toast('Kanjivaram collection selected')">
+          Explore
+        </button>
+      </div>
+    </div>
+
+    <div class="saree">
+      <div class="saree-content">
+        <h3>Golden Festive</h3>
+        <p>Elegant colours with timeless zari style</p>
+        <button class="btn btn-secondary" onclick="toast('Golden Festive collection selected')">
+          Explore
+        </button>
+      </div>
+    </div>
+
+    <div class="saree">
+      <div class="saree-content">
+        <h3>Temple Collection</h3>
+        <p>Inspired by South Indian heritage</p>
+        <button class="btn btn-secondary" onclick="toast('Temple collection selected')">
+          Explore
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="about">
+  <div class="about">
+
+    <div class="about-card">
+      <div class="eyebrow">Our Story</div>
+      <h2>A little store with a lot of tradition.</h2>
+
+      <p>
+        Aadi Ganesh Store brings together the warmth of a local
+        neighbourhood store with the beauty of South Indian culture.
+        From everyday pantry essentials to traditional sarees,
+        everything is presented with care.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>425+</strong>
+          <span>Digital Store Pages</span>
+        </div>
+
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Frontend Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-card">
+      <div class="eyebrow">The Experience</div>
+      <h2>Shop with a traditional soul.</h2>
+
+      <p>
+        Beautiful product displays, festive colours, smooth animations
+        and a premium shopping experience — all without requiring
+        a backend or database.
+      </p>
+
+      <button class="btn btn-primary" onclick="go('contact')">
+        Find Our Store →
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section location" id="contact">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Come say Namaste</div>
+      <h2>Visit Aadi Ganesh Store</h2>
+    </div>
+  </div>
+
+  <div class="location-box">
+
+    <div>
+      <div class="eyebrow">Store Location</div>
+      <h2 style="margin-top:10px">
+        Mulund West,<br>Mumbai
+      </h2>
+
+      <p style="margin:20px 0;color:#725d5e;line-height:1.8">
+        A neighbourhood destination for groceries,
+        South Indian products, sarees and traditional clothing.
+      </p>
+
+      <button class="btn btn-primary"
+        onclick="toast('Store location section opened')">
+        Get Directions →
+      </button>
+    </div>
+
+    <div class="map">
+      <div>
+        <div style="font-size:65px">📍</div>
+        <h3>Aadi Ganesh Store</h3>
+        <p>Mulund West • Mumbai</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div>
+      <h3>AADI GANESH STORE</h3>
+      <p>
+        Groceries, South Indian favourites, sarees
+        and traditional clothing — all under one roof.
+      </p>
+    </div>
+
+    <div>
+      <h3>Explore</h3>
+      <ul>
+        <li>Groceries</li>
+        <li>South Indian</li>
+        <li>Sarees</li>
+        <li>Clothing</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Visit</h3>
+      <p>Mulund West</p>
+      <p>Mumbai, Maharashtra</p>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Aadi Ganesh Store • Crafted with tradition ✦
+  </div>
+</footer>
+
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cart">
+  <div class="cart-head">
+    <h2>My Cart 🛒</h2>
+    <button class="close" onclick="closeCart()">×</button>
+  </div>
+
+  <div id="cartItems">
+    <p style="color:#80696b">
+      Your cart is beautifully empty.
+    </p>
+  </div>
+
+  <div class="cart-total">
+    <strong>Total</strong>
+    <h2 id="total">₹0</h2>
+
+    <button class="btn btn-primary"
+      style="width:100%;margin-top:15px"
+      onclick="toast('Demo checkout — backend intentionally disabled')">
+      Checkout →
+    </button>
+  </div>
+</aside>
+
+
+<div class="toast" id="toast"></div>
+
+<div class="page-counter" id="pageCounter">
+  Frontend Page 001 / 425
+</div>
+
+
+<script>
+const products = [
+  {
+    name:"Premium Basmati Rice",
+    category:"grocery",
+    icon:"🍚",
+    price:149
+  },
+  {
+    name:"South Indian Filter Coffee",
+    category:"south",
+    icon:"☕",
+    price:299
+  },
+  {
+    name:"Traditional Coconut",
+    category:"south",
+    icon:"🥥",
+    price:65
+  },
+  {
+    name:"Idli Rice",
+    category:"grocery",
+    icon:"🌾",
+    price:89
+  },
+  {
+    name:"Toor Dal",
+    category:"grocery",
+    icon:"🫘",
+    price:169
+  },
+  {
+    name:"Fresh Turmeric",
+    category:"grocery",
+    icon:"🌿",
+    price:79
+  },
+  {
+    name:"Mysore Sandal Soap",
+    category:"south",
+    icon:"🧼",
+    price:99
+  },
+  {
+    name:"Traditional Banana Chips",
+    category:"south",
+    icon:"🍌",
+    price:120
+  }
+];
+
+let cart=[];
+
+const productsEl=document.getElementById("products");
+
+function renderProducts(list=products){
+
+  productsEl.innerHTML="";
+
+  if(!list.length){
+    productsEl.innerHTML=`
+      <div style="grid-column:1/-1;text-align:center;padding:50px">
+        <h3>No products found ✨</h3>
+        <p>Try another search.</p>
+      </div>
+    `;
+    return;
+  }
+
+  list.forEach((p,i)=>{
+
+    productsEl.innerHTML+=`
+      <article class="product">
+
+        <div class="product-img">
+          ${p.icon}
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-tag">
+            ${p.category === "south" ? "South Indian" : "Grocery"}
+          </div>
+
+          <h3>${p.name}</h3>
+
+          <div class="product-bottom">
+            <span class="price">₹${p.price}</span>
+
+            <button class="add"
+              onclick="addToCart(${i})">
+              + Add
+            </button>
+          </div>
+
+        </div>
+      </article>
+    `;
+  });
+}
+
+function addToCart(index){
+
+  const p=products[index];
+
+  const existing=cart.find(x=>x.name===p.name);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({...p,qty:1});
+  }
+
+  renderCart();
+  toast(p.name+" added to cart ✦");
+}
+
+function renderCart(){
+
+  const box=document.getElementById("cartItems");
+
+  if(!cart.length){
+    box.innerHTML=`
+      <p style="color:#80696b">
+        Your cart is beautifully empty.
+      </p>
+    `;
+    document.getElementById("total").textContent="₹0";
+    return;
+  }
+
+  let total=0;
+
+  box.innerHTML=cart.map((p,i)=>{
+
+    total+=p.price*p.qty;
+
+    return `
+      <div class="cart-item">
+
+        <div class="cart-item-icon">
+          ${p.icon}
+        </div>
+
+        <div style="flex:1">
+          <strong>${p.name}</strong>
+          <div style="font-size:13px;color:#80696b">
+            ₹${p.price} × ${p.qty}
+          </div>
+        </div>
+
+        <button
+          onclick="removeCart(${i})"
+          style="border:0;background:none;font-size:20px">
+          ×
+        </button>
+
+      </div>
+    `;
+
+  }).join("");
+
+  document.getElementById("total").textContent="₹"+total;
+}
+
+function removeCart(i){
+
+  if(cart[i].qty>1){
+    cart[i].qty--;
+  }else{
+    cart.splice(i,1);
+  }
+
+  renderCart();
+}
+
+function openCart(){
+
+  document.getElementById("cart")
+    .classList.add("open");
+
+  document.getElementById("overlay")
+    .classList.add("show");
+}
+
+function closeCart(){
+
+  document.getElementById("cart")
+    .classList.remove("open");
+
+  document.getElementById("overlay")
+    .classList.remove("show");
+}
+
+function searchProducts(){
+
+  const query=
+    document.getElementById("searchInput")
+    .value.toLowerCase()
+    .trim();
+
+  const result=products.filter(p=>
+    p.name.toLowerCase().includes(query) ||
+    p.category.toLowerCase().includes(query)
+  );
+
+  renderProducts(result);
+}
+
+function filterProducts(category){
+
+  const result=products.filter(p=>
+    p.category===category
+  );
+
+  renderProducts(result);
+
+  document.getElementById("grocery")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+function focusSearch(){
+
+  document.getElementById("searchBox")
+    .scrollIntoView({behavior:"smooth"});
+
+  setTimeout(()=>{
+    document.getElementById("searchInput").focus();
+  },500);
+}
+
+function go(section){
+
+  const el=document.getElementById(section);
+
+  if(el){
+    el.scrollIntoView({
+      behavior:"smooth"
+    });
+  }
+
+  updateVirtualPage(section);
+}
+
+function updateVirtualPage(section){
+
+  const pages={
+    home:1,
+    grocery:101,
+    sarees:201,
+    clothes:301,
+    about:401,
+    contact:425
+  };
+
+  document.getElementById("pageCounter")
+    .textContent=
+    "Frontend Page "+
+    String(pages[section]||1).padStart(3,"0")+
+    " / 425";
+}
+
+function toast(message){
+
+  const t=document.getElementById("toast");
+
+  t.textContent=message;
+
+  t.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(()=>{
+    t.classList.remove("show");
+  },2200);
+}
+
+renderProducts();
+renderCart();
+
+window.addEventListener("scroll",()=>{
+
+  const sections=[
+    ["home",1],
+    ["grocery",101],
+    ["sarees",201],
+    ["about",401],
+    ["contact",425]
+  ];
+
+  let current=1;
+
+  sections.forEach(([id,page])=>{
+    const el=document.getElementById(id);
+
+    if(el && window.scrollY >= el.offsetTop-250){
+      current=page;
+    }
+  });
+
+  document.getElementById("pageCounter")
+    .textContent=
+    "Frontend Page "+
+    String(current).padStart(3,"0")+
+    " / 425";
+});
+
+document.addEventListener("mousemove",(e)=>{
+
+  const card=document.querySelector(".store-card");
+
+  if(!card) return;
+
+  const x=(window.innerWidth/2-e.clientX)/45;
+  const y=(window.innerHeight/2-e.clientY)/45;
+
+  card.style.transform=
+    `rotateY(${-x}deg) rotateX(${y}deg)`;
+});
+
+document.addEventListener("mouseleave",()=>{
+  const card=document.querySelector(".store-card");
+
+  if(card)
+    card.style.transform="";
+});
+</script>
+
+</body>
+</html>
